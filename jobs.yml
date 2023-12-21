@@ -23,7 +23,7 @@
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
       vars:
-        repo_name: parameter-store
+        repo_name: backend
 ##creating multiple jobs in one shot
     - name: Create Jenkins Job - Expense Parameters
       community.general.jenkins_job:
@@ -33,7 +33,7 @@
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
       vars:
-        repo_name: backend
+        repo_name: parameter-store
 
     - name: Create Jenkins Job - Expense Terraform
       community.general.jenkins_job:
