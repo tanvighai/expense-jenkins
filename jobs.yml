@@ -12,6 +12,8 @@
         password: "{{ jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars :
+        repo_name: frontend
 
     - name: Create Jenkins Job - Backend
       community.general.jenkins_job:
@@ -20,7 +22,9 @@
         password: "{{ jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
-
+      vars:
+        repo_name: parameter-store
+##creating multiple jobs in one shot
     - name: Create Jenkins Job - Expense Parameters
       community.general.jenkins_job:
         config: "{{ lookup('file', 'job.xml') }}"
@@ -28,6 +32,8 @@
         password: "{{ jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: backend
 
     - name: Create Jenkins Job - Expense Terraform
       community.general.jenkins_job:
@@ -36,3 +42,5 @@
         password: "{{ jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: expense-terraform
